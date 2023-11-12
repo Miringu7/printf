@@ -4,6 +4,7 @@
   * _printf - function that produces output according to a format.
   * 
   * @format: first argument to the my_printf function
+  * Return: characters printed
   */
 
 int _printf(const char *format, ...)
@@ -52,5 +53,6 @@ int _printf(const char *format, ...)
 		}
 		format++;
 	}
+	va_end(args);
 	return (num_char);
 }
