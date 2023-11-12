@@ -1,8 +1,9 @@
 #include "main.h"
 
 /**
-  *
-  *
+  * _printf - function that produces output according to a format.
+  * 
+  * @format: first argument to the my_printf function
   */
 
 int _printf(const char *format, ...)
@@ -49,6 +50,7 @@ int _printf(const char *format, ...)
 				num_char_printed++;
 			}
 		}
+		format++;
 	}
 	return (num_char);
 }
