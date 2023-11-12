@@ -24,6 +24,9 @@ int _printf(const char *format, ...)
 		else
 		{
 			format++;
+			if (*format == '\0')
+				break;
+
 			int character = va_arg(args, int);
 
 			if (*format == 'c')
