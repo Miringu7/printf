@@ -1,6 +1,15 @@
 #include "main.h"
 
 /**
+  * specifier_c - checks if character is a char specify
+  * @character: character to be checked
+  * @num_char_printed: number of characters printed to stdout
+  * Return: returns number of characters printed
+  */
+
+int specifier_c(char *character, int num_char_printed);
+
+/**
   * _printf - function that produces output according to a format.
   * @format: first argument to the my_printf function
   * Return: characters printed
@@ -30,8 +39,7 @@ int _printf(const char *format, ...)
 			{
 				char character = va_arg(args, int);
 
-				write(1, &character, 1);
-				num_char_printed++;
+				specifier_c(&character, num_char_printed);
 			}
 			else if (*format == 's')
 			{
@@ -50,5 +58,20 @@ int _printf(const char *format, ...)
 		format++;
 	}
 	va_end(args);
+	return (num_char_printed);
+}
+
+/**
+ * specifier_c - checks if character is a char specify
+ * @character: character to be checked
+ * @num_char_printed: number of characters printed to stdout
+ * Return: returns number of characters printed
+ */
+
+int specifier_c(char *character, int num_char_printed)
+{
+	write(1, character, 1);
+	num_char_printed++;
+
 	return (num_char_printed);
 }
