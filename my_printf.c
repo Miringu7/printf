@@ -30,16 +30,16 @@ int _printf(const char *format, ...)
 			{
 				char character = va_arg(args, int);
 
-				write(1, character, 1);
+				write(1, &character, 1);
 				num_char_printed++;
 			}
 			else if (*format == 's')
 			{
 				char *string = va_arg(args, char*);
-				int string_length = strlen(*string);
+				int string_length = strlen(string);
 
-				write(1, string, (string_length - 1));
-				num_char_printed += (string_length - 1);
+				write(1, string, string_length);
+				num_char_printed += string_length;
 			}
 			else if (*format == '%')
 			{
@@ -50,5 +50,5 @@ int _printf(const char *format, ...)
 		format++;
 	}
 	va_end(args);
-	return (num_char);
+	return (num_char_printed);
 }
