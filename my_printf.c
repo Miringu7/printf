@@ -8,6 +8,7 @@
   */
 
 int specifier_c(char *character, int num_char_printed);
+int write_number(int number, int num_char_printed);
 
 /**
   * _printf - function that produces output according to a format.
@@ -55,6 +56,13 @@ int _printf(const char *format, ...)
 				write(1, format, 1);
 				num_char_printed++;
 			}
+			else if (*format == 'd')
+			{
+				int integer = va_arg(args, int);
+
+				num_char_printed = write_number(integer, num_char_printed);
+
+			}
 		}
 		format++;
 	}
@@ -74,5 +82,61 @@ int specifier_c(char *character, int num_char_printed)
 	write(1, character, 1);
 	num_char_printed++;
 
+	return (num_char_printed);
+}
+
+int power(int base, int exponent) {
+    int result = 1;
+    int i;
+
+    for (i = 0; i < exponent; i++) {
+        result *= base;
+    }
+    return result;
+}
+int write_number(int number, int num_char_printed)
+{
+	int num_digits = 0;
+	int temp;
+	int i;
+
+	if (number == 0)
+	{
+		char zero = '0';
+
+		write(1, &zero, 1);
+		num_char_printed++;
+
+		return (num_char_printed);
+
+	}
+
+	if (number < 0)
+	{
+		write(1, "-", 1);
+		number = -number;
+	}
+
+	temp = number;
+
+	while (temp != 0)
+	{
+		temp /= 10;
+		num_digits++;
+	}
+
+	temp = number;
+
+	for (i = (num_digits -1); i >= 0; i--)
+	{
+		int digit = temp / power(10, i);
+		char individual_char = '0' + digit;		
+
+		write(1, &individual_char, 1);
+
+		temp %= power(10, i);
+		num_char_printed++;
+
+	}
 	return (num_char_printed);
 }
