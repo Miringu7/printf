@@ -56,7 +56,7 @@ int _printf(const char *format, ...)
 				write(1, format, 1);
 				num_char_printed++;
 			}
-			else if (*format == 'd')
+			else if (*format == 'd' || *format == 'i')
 			{
 				int integer = va_arg(args, int);
 
