@@ -1,7 +1,5 @@
 #include "main.h"
 
-int greater_than_zero(int integer_num, int num_char_printed);
-
 /**
   * convert_to_binary - converts an integer to binary
   * @integer_num: integer value to be converted

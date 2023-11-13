@@ -1,23 +1,4 @@
 #include "main.h"
-
-/**
-  * power - function to carry out power of a value
-  * @base: value to be powered
-  * @exponent: how many times to iterate the loop
-  * Return: returns result of the power function
-  */
-
-int power(int base, int exponent)
-{
-	int result = 1;
-	int i;
-
-	for (i = 0; i < exponent; i++)
-	{
-		result *= base;
-	}
-	return (result);
-}
  
 /**
   * write_number - writes integers to the stdout
