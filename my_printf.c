@@ -37,7 +37,7 @@ int _printf(const char *format, ...)
 			{
 				char *string = va_arg(args, char*);
 				int string_length = strlen(*string);
-
+				
 				write(1, string, (string_length - 1));
 				num_char_printed += (string_length - 1);
 			}
