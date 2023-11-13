@@ -53,6 +53,13 @@ int _printf(const char *format, ...)
 				num_char_printed = write_number(integer, num_char_printed);
 
 			}
+
+			else if (*format == 'b')
+			{
+				int integer_num = va_arg(args, int);
+
+				num_char_printed = convert_to_binary(integer_num, num_char_printed);
+			}
 		}
 		format++;
 	}
