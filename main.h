@@ -7,5 +7,6 @@
 #include <math.h>
 
 int _printf(const char *format, ...);
+int write_number(int number, int num_char_printed);
 
 #endif
