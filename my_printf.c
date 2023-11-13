@@ -85,15 +85,33 @@ int specifier_c(char *character, int num_char_printed)
 	return (num_char_printed);
 }
 
-int power(int base, int exponent) {
-    int result = 1;
-    int i;
+/**
+ * power - function to carry out power of a value
+ * @base: value to be powered
+ * @exponent: how many times to iterate the loop
+ * Return: returns result of the power function
+ */
 
-    for (i = 0; i < exponent; i++) {
-        result *= base;
-    }
-    return result;
+
+int power(int base, int exponent)
+{
+	int result = 1;
+	int i;
+
+	for (i = 0; i < exponent; i++)
+	{
+		result *= base;
+	}
+	return (result);
 }
+
+/**
+ * write_number - writes integers to the stdout
+ * @number: value to be printed out
+ * @num_char_printed: number of characters printed to stdout
+ * Return: returns number of characters printed
+*/
+
 int write_number(int number, int num_char_printed)
 {
 	int num_digits = 0;
@@ -115,6 +133,7 @@ int write_number(int number, int num_char_printed)
 	{
 		write(1, "-", 1);
 		number = -number;
+		num_char_printed++;
 	}
 
 	temp = number;
@@ -127,10 +146,10 @@ int write_number(int number, int num_char_printed)
 
 	temp = number;
 
-	for (i = (num_digits -1); i >= 0; i--)
+	for (i = (num_digits - 1); i >= 0; i--)
 	{
 		int digit = temp / power(10, i);
-		char individual_char = '0' + digit;		
+		char individual_char = '0' + digit;
 
 		write(1, &individual_char, 1);
 
