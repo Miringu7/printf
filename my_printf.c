@@ -1,13 +1,5 @@
 #include "main.h"
 
-/**
-  * specifier_c - checks if character is a char specify
-  * @character: character to be checked
-  * @num_char_printed: number of characters printed to stdout
-  * Return: returns number of characters printed
-  */
-
-int specifier_c(char *character, int num_char_printed);
 int write_number(int number, int num_char_printed);
 
 /**
@@ -71,27 +63,11 @@ int _printf(const char *format, ...)
 }
 
 /**
- * specifier_c - checks if character is a char specify
- * @character: character to be checked
- * @num_char_printed: number of characters printed to stdout
- * Return: returns number of characters printed
- */
-
-int specifier_c(char *character, int num_char_printed)
-{
-	write(1, character, 1);
-	num_char_printed++;
-
-	return (num_char_printed);
-}
-
-/**
  * power - function to carry out power of a value
  * @base: value to be powered
  * @exponent: how many times to iterate the loop
  * Return: returns result of the power function
  */
-
 
 int power(int base, int exponent)
 {
