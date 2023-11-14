@@ -1,5 +1,5 @@
 #include "main.h"
- 
+
 /**
   * write_number - writes integers to the stdout
   * @number: value to be printed out
@@ -16,10 +16,10 @@ int write_number(int number, int num_char_printed)
 	if (number == 0)
 	{
 		char zero = '0';
-		
+
 		write(1, &zero, 1);
 		num_char_printed++;
-	
+
 		return (num_char_printed);
 	}
 
@@ -39,14 +39,12 @@ int write_number(int number, int num_char_printed)
 	}
 
 	temp = number;
-
 	for (i = (num_digits - 1); i >= 0; i--)
 	{
 		int digit = temp / power(10, i);
 		char individual_char = '0' + digit;
 
 		write(1, &individual_char, 1);
-	
 		temp %= power(10, i);
 		num_char_printed++;
 	}
