@@ -120,7 +120,7 @@ int power(int base, int exponent)
 }
 
 /**
-  * power - function to carry out power of a value
+  * unsigned_power - function to carry out power of a value
   * @base: value to be powered
   * @exponent: how many times to iterate the loop
   * Return: returns result of the power function
