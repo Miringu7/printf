@@ -1,7 +1,7 @@
 #include "main.h"
 /**
  * print_the_string - prints string
- * @s_tring: values to be printed
+ * @st: values to be printed
  * Return: printed character
  */
 
