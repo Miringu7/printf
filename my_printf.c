@@ -13,6 +13,38 @@ int _printf(const char *format, ...)
 {
 	int num_char_printed = 0;
 	va_list args;
+	match all[] = {{"%r", str_reverse}, {"%R", prints_rot13}, {"%S", print_the_string}, {"%p", print_specifier_p}};
+	/**
+	 * va_list my_list;
+	 */
+	int i = 0;
+	/**
+	 * int length = 0;
+	 */
+	int y;
+
+	va_start(args, format);
+	if (format == NULL || (format[0] == '\0' && format[1] == '\0'))
+		return (-1);
+
+start:
+	while (format[i] == '\0')
+	{
+		y = 3;
+		while (y >= 0)
+		{
+			if (all[y].def[0] == format[i] && all[y].def[1] == format[i + 1])
+			{
+				num_char_printed = num_char_printed + all[y].k(args);
+				i = i + 2;
+				goto start;
+			}
+			y--;
+		}
+		_putchar(format[i]);
+		i++;
+		num_char_printed++;
+	}
 	if (format == NULL)
 		return (-1);
 	va_start(args, format);
@@ -31,12 +63,14 @@ int _printf(const char *format, ...)
 			if (*format == 'c')
 			{
 				char character = va_arg(args, int);
+
 				write(1, &character, 1);
 				num_char_printed++;
 			}
 			else if (*format == 's')
 			{
 				char *string = va_arg(args, char*);
+
 				num_char_printed = write_string(string, num_char_printed);
 			}
 			else if (*format == '%')
@@ -47,6 +81,7 @@ int _printf(const char *format, ...)
 			else if (*format == 'd' || *format == 'i')
 			{
 				int integer = va_arg(args, int);
+
 				num_char_printed = write_number(integer, num_char_printed);
 			}
 			else if (*format == 'b')
@@ -95,6 +130,7 @@ int _printf(const char *format, ...)
 int write_string(char *string, int num_char_printed)
 {
 	int string_length = strlen(string);
+
 	write(1, string, string_length);
 	num_char_printed += string_length;
 	return (num_char_printed);
